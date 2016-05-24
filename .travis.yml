@@ -10,13 +10,14 @@ before_script:
   - pyrus install pear/PHP_CodeSniffer
   - phpenv rehash
   - php composer.phar install --dev --no-interaction
+  - git fetch
 
 
 script:
   - which phpcs
   - pear -V
   - git diff HEAD^
-  - git branch
+  - git branch -a
   - mkdir -p build/logs
   - phpunit --coverage-clover build/logs/clover.xml --configuration tests/phpunit.xml tests
   - git diff --name-only origin/master | grep ".*.php$" | xargs phpcs --report=source --standard=./tests/phpcs.xml
