@@ -12,6 +12,7 @@ before_script:
 
 
 script:
+  - which phpcs
   - pear -V
   - git diff HEAD^
   - mkdir -p build/logs
