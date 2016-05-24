@@ -8,13 +8,13 @@ php:
 before_script:
   - curl -s http://getcomposer.org/installer | php
   - php composer.phar install --dev --no-interaction
-  - git fetch --unshallow
 
 
 script:
   - which phpcs
   - pear -V
   - git diff HEAD^
+  - git branch
   - mkdir -p build/logs
   - phpunit --coverage-clover build/logs/clover.xml --configuration tests/phpunit.xml tests
   - git diff --name-only origin/master | grep ".*.php$" | xargs phpcs --report=source --standard=./tests/phpcs.xml
