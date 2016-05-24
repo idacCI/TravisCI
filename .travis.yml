@@ -26,6 +26,7 @@ script:
   - phpcs Fuga.php --report=checkstyle --standard=./tests/phpcs.xml
   - git diff --name-only origin/master | grep ".*.php$" | xargs phpcs --report=source --standard=./tests/phpcs.xml
   - git diff --name-only origin/master | grep ".*.php$" | xargs phpcs --report=checkstyle --standard=./tests/phpcs.xml
+  - vendor/bin/phpmd Fuga.php text codesize,controversial
 
 
 after_success:
