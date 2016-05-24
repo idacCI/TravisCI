@@ -17,7 +17,7 @@ before_script:
 
 
 script:
-  - which phpcs
+  - vendor/bin/phpmd
   - pear -V
   - git diff HEAD^
   - mkdir -p build/logs
