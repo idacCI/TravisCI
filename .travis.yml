@@ -10,8 +10,6 @@ before_script:
   - pyrus install pear/PHP_CodeSniffer
   - phpenv rehash
   - php composer.phar install --dev --no-interaction
-  - git fetch --unshallow
-  - git fetch
 
 
 script:
