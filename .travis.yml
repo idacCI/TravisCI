@@ -10,6 +10,7 @@ before_script:
   - pyrus install pear/PHP_CodeSniffer
   - phpenv rehash
   - php composer.phar install --dev --no-interaction
+  - git fetch --unshallow
   - git fetch
 
 
@@ -20,6 +21,8 @@ script:
   - git branch -a
   - mkdir -p build/logs
   - phpunit --coverage-clover build/logs/clover.xml --configuration tests/phpunit.xml tests
+  - phpcs Fuga.php --report=source --standard=./tests/phpcs.xml
+  - phpcs Fuga.php --report=checkstyle --standard=./tests/phpcs.xml
   - git diff --name-only origin/master | grep ".*.php$" | xargs phpcs --report=source --standard=./tests/phpcs.xml
   - git diff --name-only origin/master | grep ".*.php$" | xargs phpcs --report=checkstyle --standard=./tests/phpcs.xml
 
