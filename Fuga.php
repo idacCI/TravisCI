@@ -11,4 +11,9 @@ class Fuga {
     public function index2() {
         return false;
     }
+    
+    public function index3() {
+        return 1;
+    }
+
 }
