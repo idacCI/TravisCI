@@ -23,7 +23,7 @@ script:
   - phpunit --coverage-clover build/logs/clover.xml --configuration tests/phpunit.xml tests
   - git diff --name-only origin/master | grep ".*.php$" | xargs phpcs --report=source --standard=./tests/phpcs.xml
   - git diff --name-only origin/master | grep ".*.php$" | xargs phpcs --report=checkstyle --standard=./tests/phpcs.xml
-  - git diff --name-only origin/master | grep ".*.php$" | xargs vendor/bin/phpmd tests/phpmd.xml
+  - git diff --name-only origin/master | grep ".*.php$" | xargs vendor/bin/phpmd text tests/phpmd.xml
 
 
 
