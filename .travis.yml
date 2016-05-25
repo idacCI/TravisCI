@@ -17,16 +17,14 @@ before_script:
 
 
 script:
-  - vendor/bin/phpmd
   - pear -V
   - git diff HEAD^
   - mkdir -p build/logs
   - phpunit --coverage-clover build/logs/clover.xml --configuration tests/phpunit.xml tests
-  - phpcs Fuga.php --report=source --standard=./tests/phpcs.xml
-  - phpcs Fuga.php --report=checkstyle --standard=./tests/phpcs.xml
   - git diff --name-only origin/master | grep ".*.php$" | xargs phpcs --report=source --standard=./tests/phpcs.xml
   - git diff --name-only origin/master | grep ".*.php$" | xargs phpcs --report=checkstyle --standard=./tests/phpcs.xml
-  - vendor/bin/phpmd Fuga.php text codesize,controversial
+  - git diff --name-only origin/master | grep ".*.php$" | xargs vendor/bin/phpmd tests/phpmd.xml
+
 
 
 after_success:
