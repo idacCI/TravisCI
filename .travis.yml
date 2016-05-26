@@ -1,5 +1,8 @@
 language: php
 
+notifications:
+  slack: idac:asnnKEOcFGpIJAhT2ZkN21d0
+
 php:
   - 5.5
   - 5.6
