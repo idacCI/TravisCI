@@ -17,12 +17,12 @@ before_script:
 
 
 script:
-  - pear -V
-  - git diff HEAD^
-  - mkdir -p build/logs
-  - git diff --name-only origin/master | grep ".*.php$" | xargs vendor/bin/phpcs --report=source --standard=./tests/phpcs.xml
-  - git diff --name-only origin/master | grep ".*.php$" | xargs vendor/bin/phpcs --report=checkstyle --standard=./tests/phpcs.xml
-  - vendor/bin/phpmd Fuga.php text ./tests/phpmd.xml
+  #- pear -V
+  #- git diff HEAD^
+  #- mkdir -p build/logs
+  #- git diff --name-only origin/master | grep ".*.php$" | xargs vendor/bin/phpcs --report=source --standard=./tests/phpcs.xml
+  #- git diff --name-only origin/master | grep ".*.php$" | xargs vendor/bin/phpcs --report=checkstyle --standard=./tests/phpcs.xml
+  #- vendor/bin/phpmd Fuga.php text ./tests/phpmd.xml
   - phpunit --coverage-clover build/logs/clover.xml --configuration tests/phpunit.xml tests
 
 
