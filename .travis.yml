@@ -28,4 +28,4 @@ script:
 
 after_success:
   - travis_retry php vendor/bin/coveralls -v
-  - ./open-pull-request.sh
+  - sudo ./open-pull-request.sh
