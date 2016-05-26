@@ -20,11 +20,12 @@ script:
   - pear -V
   - git diff HEAD^
   - mkdir -p build/logs
-  - phpunit --coverage-clover build/logs/clover.xml --configuration tests/phpunit.xml tests
   - git diff --name-only origin/master | grep ".*.php$" | xargs phpcs --report=source --standard=./tests/phpcs.xml
   - git diff --name-only origin/master | grep ".*.php$" | xargs phpcs --report=checkstyle --standard=./tests/phpcs.xml
   - vendor/bin/phpmd Fuga.php text ./tests/phpmd.xml
+  - phpunit --coverage-clover build/logs/clover.xml --configuration tests/phpunit.xml tests
 
 
 after_success:
   - travis_retry php vendor/bin/coveralls -v
+  - ./open-pull-request.sh
