@@ -17,6 +17,7 @@ before_script:
   - git branch -a
   - git fetch --unshallow
   - git fetch origin master:refs/remotes/origin/master
+  - chmod +x open-pull-request.sh
 
 script:
   - pear -V
