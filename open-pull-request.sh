@@ -24,7 +24,7 @@ tar -C "$HOME" -zxf "hub-linux-amd64-$HUB.tar.gz"
 export PATH="$PATH:$HOME/hub-linux-amd64-$HUB"
 
 # リポジトリに変更をコミットする
-hub clone "idacCI" _
+hub clone "TravisCI" _
 cd _
 hub checkout -b "develop"
 ## ファイルを変更する ##
