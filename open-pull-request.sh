@@ -32,6 +32,6 @@ cd _
 #hub commit -m "コミットメッセージ"
 
 # Pull Requestを送る
-hub push origin "master"
+#hub push origin "master"
 hub pull-request -m "Pull Requestメッセージ"
 cd ..
