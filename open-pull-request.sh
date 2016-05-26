@@ -26,12 +26,11 @@ export PATH="$PATH:$HOME/hub-linux-amd64-$HUB"
 # リポジトリに変更をコミットする
 hub clone "TravisCI" _
 cd _
-hub checkout -b "tmp"
-### ファイルを変更する ##
-hub add .
-hub commit -m "コミットメッセージ"
+#hub checkout "master"
+#### ファイルを変更する ##
+#hub add .
+#hub commit -m "コミットメッセージ"
 
 # Pull Requestを送る
-hub push origin "tmp"
-hub pull-request -m "Pull Requestメッセージ"
+hub pull-request -m "Pull Requestメッセージ" -b Travis:develop -h Travis:master
 cd ..
