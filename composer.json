@@ -3,7 +3,6 @@
         "satooshi/php-coveralls": "dev-master",
         "squizlabs/php_codesniffer": "*",
         "phpunit/phpunit": "~4.0",
-        "phpcs/phpcs": "*",
         "phpmd/phpmd": "*"
     }
 }
