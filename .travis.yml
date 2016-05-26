@@ -7,8 +7,8 @@ php:
 
 before_script:
   - curl -s http://getcomposer.org/installer | php
-  - pyrus install pear/PHP_CodeSniffer
-  - phpenv rehash
+    #  - pyrus install pear/PHP_CodeSniffer
+    #  - phpenv rehash
   - php composer.phar install --dev --no-interaction
   - git fetch --depth 1
   - git branch -a
@@ -20,8 +20,8 @@ script:
   - pear -V
   - git diff HEAD^
   - mkdir -p build/logs
-  - git diff --name-only origin/master | grep ".*.php$" | xargs phpcs --report=source --standard=./tests/phpcs.xml
-  - git diff --name-only origin/master | grep ".*.php$" | xargs phpcs --report=checkstyle --standard=./tests/phpcs.xml
+  - git diff --name-only origin/master | grep ".*.php$" | xargs vendor/bin/phpcs --report=source --standard=./tests/phpcs.xml
+  - git diff --name-only origin/master | grep ".*.php$" | xargs vendor/bin/phpcs --report=checkstyle --standard=./tests/phpcs.xml
   - vendor/bin/phpmd Fuga.php text ./tests/phpmd.xml
   - phpunit --coverage-clover build/logs/clover.xml --configuration tests/phpunit.xml tests
 
